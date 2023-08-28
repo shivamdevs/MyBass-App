@@ -1,0 +1,18 @@
+.hero-carousel {
+    margin-bottom: -50px;
+    ul>li {
+        margin-block: 10px 30px !important;
+
+        .hero-carousel-item {
+            opacity: 0.2;
+            filter: blur(8px);
+            transition: 500ms;
+        }
+
+        &.selected .hero-carousel-item {
+            z-index: 1;
+            opacity: 1;
+            filter: none;
+        }
+    }
+}

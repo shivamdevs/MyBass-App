@@ -1,0 +1,9 @@
+.tippy-box[data-theme~='tippy-theme'] {
+    background-color: #000000aa;
+    backdrop-filter: blur(2px);
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: 1px solid #fff1;
+    box-shadow: 0 0 10px 5px #0007;
+    font-weight: 600;
+}

@@ -1,2 +1,3 @@
 # MyBass-App
-An upgradded version of Muzo and Beat (un-released) apps.
+
+An upgraded version of Muzo and Beat (un-released) apps.

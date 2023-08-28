@@ -1,0 +1,30 @@
+.oasismenu {
+    background-color: #0e101ecc;
+    border-color: #fff1;
+    backdrop-filter: blur(4px);
+    max-height: calc(100dvh - 100px);
+
+    &>div:has(> .oasisitem) {
+        padding-block: 1px;
+    }
+
+    .oasisitem {
+        background-color: #ffffff06;
+
+        &:disabled {
+            background-color: #0004;
+        }
+
+        &:not(:disabled).oasishovered {
+            background-color: #fff2;
+        }
+    }
+
+    .oasisTopic {
+        color: #ddd;
+        font-size: 14px;
+        font-weight: 600;
+        width: 100%;
+        padding: 8px 16px;
+    }
+}
