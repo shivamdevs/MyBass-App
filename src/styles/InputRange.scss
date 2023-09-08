@@ -1,0 +1,61 @@
+.range-box {
+    flex: 1;
+    height: 5px;
+    position: relative;
+    border-radius: 5px;
+
+    .buffer {
+        position: absolute;
+        inset: 0 100% 0 0;
+        height: 100%;
+        background-color: rgba(60, 50, 80, 0.75);
+        border-radius: 5px;
+        transition: 0.2s;
+
+        &:has(+.in-expansion) {
+            background-color: #fff4;
+        }
+    }
+
+
+    input {
+        --range: 0%;
+        display: block;
+        width: 100%;
+        position: absolute;
+        inset: 50% 0 auto;
+        height: 100%;
+        translate: 0 -50%;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        margin: 0;
+        -webkit-appearance: none;
+        appearance: none;
+        transition: .1s;
+        background: rgba(40, 30, 80, 0.5) linear-gradient(to right, #fff 0%, #fff var(--range), transparent var(--range), transparent 100%);
+
+        &:disabled {
+            opacity: 0.4;
+        }
+
+        &.in-expansion {
+            background: #fff2 linear-gradient(to right, #fff 0%, #fff var(--range), transparent var(--range), transparent 100%);
+        }
+
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 1em;
+            height: 1em;
+            cursor: pointer;
+            background: #fff;
+            border-radius: .5em;
+        }
+    }
+
+    &.volume-range {
+        max-width: 80px;
+    }
+}

@@ -1,4 +1,5 @@
 import DownloadUrl from "./DownloadUrl";
+import Image from "./Image";
 
 export default interface Song {
     id: string;
@@ -22,6 +23,6 @@ export default interface Song {
     hasLyrics: string;
     url: string;
     copyright: string;
-    image: [];
+    image: Image[];
     downloadUrl: DownloadUrl[];
 }

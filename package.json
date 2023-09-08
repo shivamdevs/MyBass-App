@@ -10,10 +10,11 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@tanstack/react-router": "^0.0.1-beta.151",
+        "@tailwindcss/container-queries": "^0.1.1",
         "@tippyjs/react": "^4.2.6",
         "axios": "^1.4.0",
         "classnames": "^2.3.2",
+        "fast-average-color": "^9.4.0",
         "file-saver": "^2.0.5",
         "framer-motion": "^10.16.0",
         "group-by": "^0.0.1",
@@ -26,9 +27,10 @@
         "react-hot-toast": "^2.4.1",
         "react-icons": "^4.10.1",
         "react-loading-skeleton": "^3.3.1",
+        "react-loadsvg": "^1.0.3",
         "react-responsive-carousel": "^3.2.23",
-        "react-unique-hooks": "^0.1.0",
-        "sass": "^1.66.1",
+        "react-router-dom": "^6.15.0",
+        "react-unique-hooks": "^0.1.1",
         "sort-by": "^1.2.0",
         "uuid": "^9.0.0",
         "vite-plugin-svgr": "^3.2.0"
@@ -46,6 +48,7 @@
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.3",
         "postcss": "^8.4.28",
+        "sass": "^1.66.1",
         "tailwindcss": "^3.3.3",
         "typescript": "^5.0.2",
         "vite": "^4.4.5"

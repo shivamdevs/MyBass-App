@@ -1,19 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "./tippyjs.css";
+@import "./tippyjs";
 @import "./oasismenu";
+@import "./button";
+@import "./InputRange";
 
 #root {
-    min-height: 100dvh;
+    height: 100dvh;
     width: 100%;
     background-color: #0d0e1b;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px;
+    transition: gap 400ms;
+
+    &:has(footer:not(:empty)) {
+        gap: 10px;
+    }
 }
 
 body,
 html,
 :root {
     color-scheme: dark;
+}
+
+a:is(:hover, :focus-visible) {
+    text-decoration: underline;
 }
 
 
