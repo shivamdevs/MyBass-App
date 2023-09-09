@@ -17,6 +17,7 @@ import axios from "axios";
 import { useDebounce, useEffectOnce } from "react-unique-hooks";
 import Footer from "./components/Footer";
 import SearchPage from "./components/pages/Search";
+import PanelView from "./components/Panel";
 
 
 function App() {
@@ -80,6 +81,7 @@ function ExtendedApp() {
                                 <Footer />
                             </div>
                         </section>
+                        <PanelView />
                     </section>
                 </motion.section>
                 <Extended />

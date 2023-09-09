@@ -10,6 +10,7 @@ import Chart from '../../types/Chart';
 import Song from '../../types/Song';
 import Artist from '../../types/Artist';
 import getInfo, { GetInfoType } from '../../util/getInfo';
+import { useNavigate } from 'react-router-dom';
 
 export type GridCardItemType = Album | Playlist | Chart | Song | Artist;
 
@@ -23,6 +24,7 @@ function GridCard({ item, loading, api }: GridCardProps) {
     const { image, id } = item;
     const info = getInfo(item as GetInfoType);
     const oasisName = id + uuid();
+    const navigate = useNavigate();
     return (
         <div className="p-2">
             <OasisMenuTrigger name={oasisName}>
@@ -39,7 +41,7 @@ function GridCard({ item, loading, api }: GridCardProps) {
                     </div>
                     <div className=" line-clamp-1 mt-2 font-medium" title={info?.name}>{!loading ? info?.name : <Skeleton width="75%" />}</div>
                     <div className=" line-clamp-1 text-gray-500 text-sm" title={info?.artists}>{!loading ? info?.artists : <Skeleton />}</div>
-                    <button type="button" className="absolute inset-0 invisible"></button>
+                    <button type="button" className="absolute inset-0 opacity-0 z-20" onClick={() => navigate(`/${(item as Album).type || "song"}/${item.id}`)}></button>
                 </div>
             </OasisMenuTrigger>
             <OasisMenu name={oasisName}>

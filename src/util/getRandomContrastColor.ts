@@ -1,4 +1,4 @@
-export function getRandomColor(): string {
+export function generateRandomColor(): string {
     const letters = '0123456789ABCDEF';
     let color = '#';
 
@@ -11,10 +11,10 @@ export function getRandomColor(): string {
 
 export default function getRandomContrastColor(textColor: string = "#ffffff"): string {
 
-    let bgColor = getRandomColor();
+    let bgColor = generateRandomColor();
 
     while (calculateBrightness(bgColor) > 200 || calculateContrast(bgColor, textColor) < 4.5) {
-        bgColor = getRandomColor();
+        bgColor = generateRandomColor();
     }
 
     return bgColor;
