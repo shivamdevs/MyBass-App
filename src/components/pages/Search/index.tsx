@@ -1,39 +1,25 @@
-import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useDebounce, useEffectOnce } from 'react-unique-hooks';
-import axios from 'axios';
-import convertToFormDataString from '../../../util/convertToFormDataString';
-import Searches from '../../../types/Searches';
-import toast from 'react-hot-toast';
+import Albums from '../../Cards/Albums';
+import Playlists from '../../Cards/Playlists';
+import Songs from '../../Cards/Songs';
+import SearchHeader from './Header';
+import SearchError from './SearchError';
+import useSearch from './useSearch';
+import Artists from '../../Cards/Artists';
 
 function SearchPage() {
+    const [result, loading] = useSearch();
     const location = useLocation();
-    const [searches, setSearch] = useState<Searches | null>();
-    const [api, setApi] = useState<string>();
-
-    async function performSearchQuery() {
-        const query = new URLSearchParams(location.search).get("q");
-        if (query !== null && query.trim() !== "") {
-            try {
-                setApi(toast.loading("Refreshing searches...", { id: api }));
-                const result = await axios.get<Searches>(`${import.meta.env.VITE_API}/search/all?query=${convertToFormDataString(query)}`);
-                setSearch(result.data);
-                console.log(result.data);
-                setApi(toast.success("Search result updated", { id: api }));
-            } catch (error) {
-                setApi(toast.error("Failed to fetch Searches", { id: api }));
-                console.error(error);
-            }
-        } else {
-            setSearch(undefined);
-        }
-    }
-
-    useDebounce(() => { performSearchQuery(); }, 500, [location.search]);
-    useEffectOnce(() => { performSearchQuery(); });
 
     return (
         <>
+            {location.search ? <>
+                <SearchHeader loading={loading} result={result} />
+                {(location.hash === "" || location.hash === "#songs") && <Songs data={result?.songs.results} append={<SearchError>No matching song found with your search query.</SearchError>} />}
+                {(location.hash === "#albums") && <Albums data={result?.albums.results} append={<SearchError>No matching album found with your search query.</SearchError>} />}
+                {(location.hash === "#playlists") && <Playlists data={result?.playlists.results} append={<SearchError>No matching playlist found with your search query.</SearchError>} />}
+                {(location.hash === "#artists") && <Artists data={result?.artists.results} append={<SearchError>No matching artist found with your search query.</SearchError>} />}
+            </> : <SearchError> Type in the field above to search for Songs, Playlists, or Albums etc...</SearchError>}
         </>
     );
 }

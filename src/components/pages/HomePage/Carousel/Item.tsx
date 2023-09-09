@@ -19,7 +19,7 @@ function CarouselItem({ data }: CarouselItemProps) {
     const info = getInfo(data);
 
     return (
-        <div className="aspect-[20/7] min-h-[320px] bg-gray-950 shadow-lg shadow-gray-900 hero-carousel-item overflow-hidden relative rounded-lg" style={{backgroundColor: colors.background, color: colors.color}}>
+        <div className="aspect-[20/7] min-h-[320px] bg-gray-950 shadow-lg shadow-gray-900 hero-carousel-item overflow-hidden relative rounded-lg" style={{ backgroundColor: colors.background, color: colors.color }}>
             <LazyImage
                 className="inset-0 left-auto max-w-[60%] w-full"
                 style={{ position: "absolute" }}
@@ -28,10 +28,10 @@ function CarouselItem({ data }: CarouselItemProps) {
                 imageClass="object-cover inset-0 h-full w-full"
                 imageStyle={{ position: "absolute" }}
             />
-            <div className="absolute inset-0 left-auto w-full max-w-[61%] z-10" style={{ backgroundImage: `linear-gradient(to left, ${colors.result?.hex || "#000000"}00 0%, ${colors.background} 100%)`}}></div>
+            <div className="absolute inset-0 left-auto w-full max-w-[61%] z-10" style={{ backgroundImage: `linear-gradient(to left, ${colors.result?.hex || "#000000"}00 0%, ${colors.background} 100%)` }}></div>
             <div className="absolute inset-0 flex flex-col justify-center items-start text-left font-family-comfortaa bg-[#000a] z-10 py-10 px-20 cursor-pointer" onClick={() => navigate(`/${data.type}/${data.id}`)}>
-                <h1 className="w-full font-bold text-3xl opacity-60 line-clamp-2">{info?.name}</h1>
-                <h2 className="w-full font-medium text-xl opacity-40 my-5 line-clamp-2">{info?.artists}</h2>
+                <h1 className="w-full font-bold text-3xl opacity-60 line-clamp-2" title={info?.name}>{info?.name}</h1>
+                <h2 className="w-full font-medium text-xl opacity-40 my-5 line-clamp-2" title={info?.artists}>{info?.artists}</h2>
             </div>
             <div className="absolute right-5 bottom-8 flex flex-nowrap gap-3 z-10">
                 <ButtonPlay item={data} api="albums" />

@@ -1,9 +1,10 @@
 import Album from "../types/Album";
 import Artist from "../types/Artist";
+import Playlist from "../types/Playlist";
 import Song from "../types/Song";
 import convertHTMLEntities from "./convertHTMLEntities";
 
-export type GetArtistsType = Song | Album;
+export type GetArtistsType = Playlist | Artist | Song | Album;
 
 function mapArtists(names: string | Artist[]): string[] {
     if (!names) return [];
@@ -12,5 +13,5 @@ function mapArtists(names: string | Artist[]): string[] {
 }
 
 export default function getArtists(item: GetArtistsType): string {
-    return [...mapArtists((item as Album)?.artists), ...mapArtists(item.primaryArtists), ...mapArtists(item.featuredArtists)].filter(artist => !!artist).reduce((accumulate, artist, i) => `${accumulate}${i > 0 ? ", " : ""}${artist}`, "");
+    return [...mapArtists((item as Album)?.artists), ...mapArtists((item as Song).primaryArtists), ...mapArtists((item as Song).featuredArtists)].filter(artist => !!artist).reduce((accumulate, artist, i) => `${accumulate}${i > 0 ? ", " : ""}${artist}`, "");
 }

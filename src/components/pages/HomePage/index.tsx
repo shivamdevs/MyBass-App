@@ -1,8 +1,8 @@
 import Module from '../../../types/Module';
 import HomeCarousel from './Carousel';
-import Albums from './Albums';
-import Playlists from './Playlists';
-import Charts from './Charts';
+import Albums from '../../Cards/Albums';
+import Playlists from '../../Cards/Playlists';
+import Charts from '../../Cards/Charts';
 
 export interface HomePageProps {
     result?: Module | null;

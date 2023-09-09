@@ -20,7 +20,7 @@ function VolumeSeeker() {
 
     return (
         <div className="range-box volume-range">
-            <InputRange max={1} disabled={muted} value={debounce} onChange={(vol: number) => setDebounce(vol)} />
+            <InputRange max={1} divisor={10} disabled={muted} value={debounce} onChange={(vol: number) => setDebounce(vol)} />
         </div>
     );
 }

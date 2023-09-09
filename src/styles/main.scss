@@ -75,3 +75,20 @@ a:is(:hover, :focus-visible) {
 .scroll-hidden::-webkit-scrollbar {
     display: none;
 }
+
+
+.search-header-screen {
+    animation: search-header-screen 1.25s infinite linear;
+    background-image: linear-gradient(to right, transparent, transparent, #fa67, transparent, transparent);
+    background-size: 200% 100%;
+}
+
+@keyframes search-header-screen {
+    0% {
+        background-position-x: 100%;
+    }
+
+    100% {
+        background-position-x: -100%;
+    }
+}

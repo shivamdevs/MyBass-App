@@ -18,6 +18,7 @@ function ButtonPlay(props: ButtonPlayProps) {
     async function playButton() {
         const api = toast.loading("Getting songs...");
         const songs = await getSongs(props.item, props.api);
+        console.log(songs);
         if (songs) {
             dispatch({ type: "SET", payload: songs, autoplay: true });
             dispatch({ type: "JUMP", payload: 0 });

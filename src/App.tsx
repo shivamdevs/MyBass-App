@@ -71,7 +71,7 @@ function ExtendedApp() {
                         <SideBar />
                         <section className="flex-[3] rounded-lg bg-[#000a] overflow-hidden">
                             <div className="w-full h-full overflow-auto">
-                                <article className="min-h-[100%]">
+                                <article className="min-h-[100%] relative">
                                     <Routes>
                                         <Route path="/" index element={<HomePage result={result} />} />
                                         <Route path="/search" element={<SearchPage />} />

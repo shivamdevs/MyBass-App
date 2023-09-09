@@ -3,15 +3,15 @@ import getRandomContrastColor from "../../util/getRandomContrastColor";
 import { FastAverageColor, FastAverageColorResult } from "fast-average-color";
 import Image from "../../types/Image";
 
-export type BackgroundColorHook = {
+export type ColorsHook = {
     background: string;
     color: "#ffffff" | "#000000";
     scheme: "dark" | "light";
     result?: FastAverageColorResult;
 }
 
-export default function useColors(image?: Image[]): BackgroundColorHook {
-    const [color, setColor] = React.useState<BackgroundColorHook>({ background: getRandomContrastColor(), color: "#ffffff", scheme: "dark" });
+export default function useColors(image?: Image[]): ColorsHook {
+    const [color, setColor] = React.useState<ColorsHook>({ background: getRandomContrastColor(), color: "#ffffff", scheme: "dark" });
 
     React.useEffect(() => {
         if (image) {

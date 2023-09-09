@@ -1,6 +1,5 @@
 import Album from '../../types/Album';
 import { LazyImage } from 'neatkit/components';
-import convertHTMLEntities from '../../util/convertHTMLEntities';
 import { OasisMenu, OasisMenuBreak, OasisMenuItem, OasisMenuTrigger } from 'oasismenu';
 import uuid from '../../util/uuid';
 import Skeleton from 'react-loading-skeleton';
@@ -8,8 +7,11 @@ import ButtonPlay from '../common/ButtonPlay';
 import { GetSongsApiHook } from '../../util/getSongs';
 import Playlist from '../../types/Playlist';
 import Chart from '../../types/Chart';
+import Song from '../../types/Song';
+import Artist from '../../types/Artist';
+import getInfo, { GetInfoType } from '../../util/getInfo';
 
-export type GridCardItemType = Album | Playlist | Chart;
+export type GridCardItemType = Album | Playlist | Chart | Song | Artist;
 
 export interface GridCardProps {
     item: GridCardItemType;
@@ -19,14 +21,13 @@ export interface GridCardProps {
 
 function GridCard({ item, loading, api }: GridCardProps) {
     const { image, id } = item;
-    const name = (item as Album).name || (item as Playlist).title;
-    const artists = [...((item as Album).artists || []), ...((item as Album).featuredArtists || [])];
+    const info = getInfo(item as GetInfoType);
     const oasisName = id + uuid();
     return (
         <div className="p-2">
             <OasisMenuTrigger name={oasisName}>
                 <div className="relative bg-gray-800 rounded-lg group transition-all duration-300 overflow-hidden p-2">
-                    <div className="overflow-hidden rounded-lg  ">
+                    <div className="overflow-hidden rounded-lg">
                         <LazyImage
                             ratio="1 / 1"
                             thumbnail={image.find(img => (img.quality === "50x50"))?.link}
@@ -36,8 +37,8 @@ function GridCard({ item, loading, api }: GridCardProps) {
                             {loading ? <Skeleton className="inset-0 z-10" style={{ position: "absolute" }} /> : <ButtonPlay item={item} api={api} className="absolute right-2 -bottom-12 transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:bottom-2 group-hover:opacity-100" />}
                         </LazyImage>
                     </div>
-                    <div className=" line-clamp-1 mt-2 font-medium">{convertHTMLEntities(name) || <Skeleton width="75%" />}</div>
-                    <div className=" line-clamp-1 text-gray-500 text-sm">{!loading ? (convertHTMLEntities(artists.map(artist => artist.name).join(",")) || "Various Artists") : <Skeleton />}</div>
+                    <div className=" line-clamp-1 mt-2 font-medium" title={info?.name}>{!loading ? info?.name : <Skeleton width="75%" />}</div>
+                    <div className=" line-clamp-1 text-gray-500 text-sm" title={info?.artists}>{!loading ? info?.artists : <Skeleton />}</div>
                     <button type="button" className="absolute inset-0 invisible"></button>
                 </div>
             </OasisMenuTrigger>
