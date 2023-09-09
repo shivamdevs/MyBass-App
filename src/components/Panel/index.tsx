@@ -38,47 +38,6 @@ function PanelLayout({ title, toggle }: PanelLayoutProps) {
                     </header>
                     <section className="relative w-full flex-1 rounded-lg overflow-hidden   ">
                         <section className="bg-gray-900 overflow-auto absolute inset-0 w-full h-full">
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
-                            <h2>Hello</h2>
                         </section>
                     </section>
                 </section>

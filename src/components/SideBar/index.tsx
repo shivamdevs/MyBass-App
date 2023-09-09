@@ -24,7 +24,8 @@ function SideBar() {
                     <li>Favorite button</li>
                     <li>Shuffle button</li>
                     <li>Side-panel</li>
-                    <li>Playlist</li>
+                    <li>Playlist queue</li>
+                    <li>Mobile view</li>
                     <li>Context menu</li>
                     <li>Content page</li>
                 </ul>
