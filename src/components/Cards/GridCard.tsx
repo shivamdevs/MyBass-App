@@ -41,7 +41,7 @@ function GridCard({ item, loading, api }: GridCardProps) {
                     </div>
                     <div className=" line-clamp-1 mt-2 font-medium" title={info?.name}>{!loading ? info?.name : <Skeleton width="75%" />}</div>
                     <div className=" line-clamp-1 text-gray-500 text-sm" title={info?.artists}>{!loading ? info?.artists : <Skeleton />}</div>
-                    <button type="button" className="absolute inset-0 opacity-0 z-20" onClick={() => navigate(`/${(item as Album).type || "song"}/${item.id}`)}></button>
+                    <button type="button" className="absolute inset-0 opacity-0" onClick={() => navigate(`/${(item as Album).type || "song"}/${item.id}`)}></button>
                 </div>
             </OasisMenuTrigger>
             <OasisMenu name={oasisName}>
